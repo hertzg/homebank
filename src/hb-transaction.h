@@ -117,6 +117,7 @@ enum
 guint da_transaction_length(void);
 
 void transaction_remove(Transaction *ope);
+void transaction_changed(Transaction *txn);
 gboolean da_transaction_insert_memo(Transaction *item);
 Transaction *transaction_add(GtkWindow *parent, Transaction *ope);
 

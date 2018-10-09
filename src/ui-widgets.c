@@ -574,16 +574,16 @@ set_sensitive (GtkCellLayout   *cell_layout,
 	       GtkTreeIter     *iter,
 	       gpointer         data)
 {
-  GtkTreePath *path;
-  gint *indices;
-  gboolean sensitive;
+GtkTreePath *path;
+gint *indices;
+gboolean sensitive;
 
-  path = gtk_tree_model_get_path (tree_model, iter);
-  indices = gtk_tree_path_get_indices (path);
-  sensitive = indices[0] != FLT_RANGE_OTHER;  
-  gtk_tree_path_free (path);
+	path = gtk_tree_model_get_path (tree_model, iter);
+	indices = gtk_tree_path_get_indices (path);
+	sensitive = indices[0] != FLT_RANGE_OTHER;  
+	gtk_tree_path_free (path);
 
-  g_object_set (cell, "sensitive", sensitive, NULL);
+	g_object_set (cell, "sensitive", sensitive, NULL);
 }
 
 

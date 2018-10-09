@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: homebank\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-09-08 16:29+0200\n"
-"PO-Revision-Date: 2018-09-08 14:39+0000\n"
-"Last-Translator: Maxime DOYEN <Unknown>\n"
+"PO-Revision-Date: 2018-10-06 09:48+0000\n"
+"Last-Translator: yoyo <yoyo.ebox@gmail.com>\n"
 "Language-Team: fr <fr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-09-08 15:28+0000\n"
-"X-Generator: Launchpad (build 18767)\n"
+"X-Launchpad-Export-Date: 2018-10-07 10:28+0000\n"
+"X-Generator: Launchpad (build 18785)\n"
 "Language: fr\n"
 
 #: ../data/homebank.desktop.in.in.h:1 ../src/dsp_mainwindow.c:945
@@ -2351,7 +2351,7 @@ msgstr "Inverser"
 
 #: ../src/ui-assist-import.c:1609 ../src/ui-pref.c:1199
 msgid "Sentence _case memo/payee"
-msgstr "_Casse de phrase pour memo/tier"
+msgstr "Casse de phrase pour memo/tiers"
 
 #: ../src/ui-assist-import.c:1643
 msgid "Similar transaction in target account (possible duplicate)"
@@ -3572,10 +3572,3 @@ msgstr "Inclure"
 #: ../src/ui-widgets.c:977
 msgid "Exclude"
 msgstr "Exclure"
-
-#~ msgid "Unmark duplicate"
-#~ msgstr "Démarquer les doubles"
-
-#, c-format
-#~ msgid "%d transactions, %d selected, sum: %s (%s - %s)"
-#~ msgstr "%d opérations, %d sélectionnées, somme: %s (%s - %s)"

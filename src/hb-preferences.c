@@ -404,10 +404,15 @@ gint i;
 	//PREFS->base_cur.nbdecimal = 2;
 	//PREFS->base_cur.separator = TRUE;
 
-	PREFS->date_range_wal = FLT_RANGE_LASTMONTH;
-	PREFS->date_range_txn = FLT_RANGE_LAST12MONTHS;
+	//PREFS->date_range_wal = FLT_RANGE_LASTMONTH;
+	//PREFS->date_range_txn = FLT_RANGE_LAST12MONTHS;
+	//PREFS->date_range_rep = FLT_RANGE_THISYEAR;
+
+	//v5.2 change to let the example file show things
+	PREFS->date_range_wal = FLT_RANGE_ALLDATE;
+	PREFS->date_range_txn = FLT_RANGE_ALLDATE;
+	PREFS->date_range_rep = FLT_RANGE_ALLDATE;
 	PREFS->date_future_nbdays = 0;
-	PREFS->date_range_rep = FLT_RANGE_THISYEAR;
 
 	//import/export
 	PREFS->dtex_nointro = TRUE;

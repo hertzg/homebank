@@ -143,7 +143,9 @@ GenTxn *item;
 				if(item->julian > 0)
 				{	
 					g_date_set_julian(&date, item->julian);
-					g_date_strftime (buf, 12-1, "%F", &date);
+					//#1794170 %F is ignored under ms windows
+					//g_date_strftime (buf, 12-1, "%F", &date);
+					g_date_strftime (buf, 12-1, "%Y-%m-%d", &date);
 					text = buf;
 				}
 				else
@@ -245,6 +247,20 @@ GenTxn *gentxn;
 }
 
 
+static gint list_txn_import_compare_func (GtkTreeModel *model, GtkTreeIter *a, GtkTreeIter *b, gpointer userdata)
+{
+gint retval = 0;
+GenTxn *gentxn1, *gentxn2;
+
+    gtk_tree_model_get(model, a, LST_GENTXN_POINTER, &gentxn1, -1);
+    gtk_tree_model_get(model, b, LST_GENTXN_POINTER, &gentxn2, -1);
+
+	retval = gentxn1->julian - gentxn2->julian;
+
+    return retval;
+}
+
+
 static GtkWidget *list_txn_import_create(void)
 {
 GtkListStore *store;
@@ -337,6 +353,8 @@ GtkTreeViewColumn  *column;
 	column = gtk_tree_view_column_new();
 	gtk_tree_view_append_column (GTK_TREE_VIEW(treeview), column);
 
+	gtk_tree_sortable_set_default_sort_func(GTK_TREE_SORTABLE(store), list_txn_import_compare_func, NULL, NULL);
+	
 	return(treeview);
 }
 
@@ -969,6 +987,7 @@ struct import_txndata *txndata;
 ImportContext *ictx;
 gboolean sensitive, visible;
 gboolean iscomplete;
+GtkTreeModel *model;
 
 	DB( g_print("\n[ui-import] page_transaction_update\n") );
 	
@@ -1031,6 +1050,10 @@ gboolean iscomplete;
 			visible = FALSE;
 		hb_widget_visible (txndata->EX_duptxn, visible);
 
+		model = gtk_tree_view_get_model(GTK_TREE_VIEW(txndata->LV_gentxn));
+
+		gtk_tree_sortable_set_sort_column_id(GTK_TREE_SORTABLE(model), GTK_TREE_SORTABLE_UNSORTED_SORT_COLUMN_ID, GTK_SORT_ASCENDING);
+		gtk_tree_sortable_set_sort_column_id(GTK_TREE_SORTABLE(model), GTK_TREE_SORTABLE_DEFAULT_SORT_COLUMN_ID, GTK_SORT_ASCENDING);
 		
 		GtkWidget *page = gtk_assistant_get_nth_page (GTK_ASSISTANT(data->assistant), pageidx);
 		gtk_assistant_set_page_complete(GTK_ASSISTANT(data->assistant), page, iscomplete);
@@ -1126,7 +1149,7 @@ gboolean visible;
 	//nbacc = g_list_length(ictx->gen_lst_acc);
 	txndata = &data->txndata[acckey];
 
-	DB( g_print(" page idx:%d, genacckey:%d genacc:%p, txndata:%p\n", pageidx, acckey, genacc, txndata) );
+	DB( g_print(" genacckey:%d genacc:%p, txndata:%p\n", acckey, genacc, txndata) );
 	
 	if(genacc)
 	{
@@ -1146,7 +1169,7 @@ gboolean visible;
 			hb_import_gen_txn_check_target_similar(ictx, genacc);
 			genacc->is_dupcheck = TRUE;
 		}
-			
+
 		view = txndata->LV_gentxn;
 		model = gtk_tree_view_get_model(GTK_TREE_VIEW(view));
 		gtk_list_store_clear (GTK_LIST_STORE(model));
@@ -1167,7 +1190,7 @@ gboolean visible;
 					LST_GENTXN_POINTER, item,
 					-1);
 
-				//DB( g_print(" - fill: %d, %s %.2f %x\n", item->account, item->memo, item->amount, item->same) );
+				DB( g_print(" - fill: %d, %d, %s %.2f\n", item->account, item->julian, item->memo, item->amount) );
 				count++;
 			}
 			tmplist = g_list_next(tmplist);

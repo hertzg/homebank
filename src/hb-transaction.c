@@ -889,6 +889,21 @@ Account *acc;
 }
 
 
+void transaction_changed(Transaction *txn)
+{
+Account *acc;
+
+	if( txn == NULL )
+		return;
+
+	acc = da_acc_get(txn->kacc);
+	if(acc == NULL)
+		return;	
+
+	acc->flags |= AF_CHANGED;
+}
+
+
 Transaction *transaction_add(GtkWindow *parent, Transaction *ope)
 {
 Transaction *newope;

@@ -1,5 +1,18 @@
 
 
+2018-10-06  Maxime Doyen
+
+ Made 5.2.2 release.
+
+ * wish  : #1783848 update demo/example with up-to-date data
+ * bugfix: scheduled day count late was faulty equal 1 when no limit set
+ * bugfix: #1795173 import txn sort and assigment changes
+ * bugfix: #1794684 edit from all transaction don't update account changed icon
+ * bugfix: #1794170 win: QIF import does not display dates
+ * bugfix: #1793794 categories drop-down shows duplicates when you add new transactions
+ * bugfix: #1792808 incorrect balance after bulk-editing date
+
+
 2018-09-15  Maxime Doyen
 
  Made 5.2.1 release.
@@ -25,6 +38,7 @@
  * change: improved the register selection informations
  * change: relayouted payee and category dialog
  * change: removed most theme icons to keep a consistent interface
+ * change: import assigments are now played at the confirmation
  * wish  : #1783826 show average of selection
  * wish  : #1760145 column chart for trend time report
  * wish  : #1759028 filter templates by current account 
@@ -53,7 +67,7 @@
  * bugfix: #1784862 budget report graph partially display last line
  * bugfix: #1782926 Save unavailable after import of OFX
  * bugfix: #1782749 when editing multiple transactions Homebank doesn't display the "account changed" icon
- * bugfix: #1771720 merging a category doesn't update the count 
+ * bugfix: #1771720 merging a category doesn't update the count
  * bugfix: #1767659 top spending graphic treats income as expenses
  * bugfix: #1765953 quick (partial) date entry doesn't work anymore
  * bugfix: #1764547 cannot rename payee in case-sensitive way

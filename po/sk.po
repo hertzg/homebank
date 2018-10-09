@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: homebank\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2018-09-08 16:29+0200\n"
-"PO-Revision-Date: 2017-02-25 08:00+0000\n"
-"Last-Translator: adam liska <Unknown>\n"
+"PO-Revision-Date: 2018-10-04 12:18+0000\n"
+"Last-Translator: Peter Sakala <Unknown>\n"
 "Language-Team: Slovak <sk@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-09-08 15:28+0000\n"
-"X-Generator: Launchpad (build 18767)\n"
+"X-Launchpad-Export-Date: 2018-10-07 10:28+0000\n"
+"X-Generator: Launchpad (build 18785)\n"
 
 #: ../data/homebank.desktop.in.in.h:1 ../src/dsp_mainwindow.c:945
 msgid "HomeBank"
@@ -23,7 +23,7 @@ msgstr "HomeBank"
 
 #: ../data/homebank.desktop.in.in.h:2
 msgid "Personal finance"
-msgstr ""
+msgstr "Osobné financie"
 
 #: ../data/homebank.desktop.in.in.h:3 ../src/dsp_mainwindow.c:478
 #: ../src/dsp_mainwindow.c:949
@@ -110,7 +110,7 @@ msgid ""
 "each of the selected transaction ?"
 msgstr ""
 "Chcete vytvoriť šablónu\n"
-"zkaždej z vybraných transakcií?"
+"z každej z vybraných transakcií?"
 
 #: ../src/dsp_account.c:1326
 msgid ""
@@ -556,11 +556,11 @@ msgstr ""
 #. ManageMenu
 #: ../src/dsp_mainwindow.c:213
 msgid "Currencies..."
-msgstr ""
+msgstr "Meny..."
 
 #: ../src/dsp_mainwindow.c:213
 msgid "Configure the currencies"
-msgstr ""
+msgstr "Nastavenie meny"
 
 #: ../src/dsp_mainwindow.c:214
 msgid "Acc_ounts..."
@@ -2064,7 +2064,7 @@ msgstr "_Vlastník:"
 
 #: ../src/ui-assist-start.c:275 ../src/ui-dialogs.c:369
 msgid "Currency:"
-msgstr ""
+msgstr "Mena:"
 
 #: ../src/ui-assist-start.c:291 ../src/ui-hbfile.c:191
 msgid "File properties"
@@ -2468,7 +2468,7 @@ msgstr ""
 
 #: ../src/ui-currency.c:366 ../src/ui-currency.c:373
 msgid "Base currency"
-msgstr ""
+msgstr "Základná mena"
 
 #: ../src/ui-currency.c:627
 msgid "Symbol"
@@ -2484,11 +2484,11 @@ msgstr ""
 
 #: ../src/ui-currency.c:774
 msgid "Edit currency"
-msgstr ""
+msgstr "Upraviť menu"
 
 #: ../src/ui-currency.c:805 ../src/ui-pref.c:1368
 msgid "Currency"
-msgstr ""
+msgstr "Mena"
 
 #: ../src/ui-currency.c:838 ../src/ui-pref.c:1413
 msgid "Format"
@@ -2520,7 +2520,7 @@ msgstr ""
 
 #: ../src/ui-currency.c:1142
 msgid "Select base currency"
-msgstr ""
+msgstr "Vyber základnú menu"
 
 #: ../src/ui-currency.c:1142
 msgid "Select currency"
@@ -2558,7 +2558,7 @@ msgstr ""
 
 #: ../src/ui-currency.c:1655
 msgid "Currencies"
-msgstr ""
+msgstr "Meny"
 
 #: ../src/ui-currency.c:1705
 msgid "Update online"
@@ -3276,7 +3276,7 @@ msgstr "Načítať naposledy otvorený súbor"
 
 #: ../src/ui-pref.c:1986
 msgid "Update currencies online"
-msgstr ""
+msgstr "Akutalizovať meny online"
 
 #: ../src/ui-pref.c:1997
 msgid "Main window reports"

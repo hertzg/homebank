@@ -63,8 +63,12 @@ gchar *name;
 
 	name = (gchar *)gtk_entry_get_text(GTK_ENTRY (gtk_bin_get_child(GTK_BIN (entry_box))));
 
-	item = da_cat_append_ifnew_by_fullname(name);
+	item = da_cat_get_by_fullname(name);
 	if(item != NULL)
+		return item->key;
+
+	item = da_cat_append_ifnew_by_fullname(name);
+	if( item != NULL )
 	{
 		ui_cat_comboboxentry_add(entry_box, item);
 		return item->key;

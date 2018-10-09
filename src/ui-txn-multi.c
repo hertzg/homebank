@@ -161,11 +161,12 @@ GList *selection, *list;
 }
 
 
-gint ui_multipleedit_dialog_apply( GtkWidget *widget, gpointer user_data )
+gint ui_multipleedit_dialog_apply( GtkWidget *widget, gboolean **do_sort )
 {
 struct ui_multipleedit_dialog_data *data;
 GtkTreeModel *model;
 GList *selection, *list;
+gboolean tmp_sort = FALSE;
 guint changes;
 
 	data = g_object_get_data(G_OBJECT(gtk_widget_get_ancestor(widget, GTK_TYPE_WINDOW)), "inst_data");
@@ -194,8 +195,15 @@ guint changes;
 		{
 			if( gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON(data->CM_date)) )
 			{
+			guint32 olddate = txn->date;
+
 				txn->date = gtk_date_entry_get_date(GTK_DATE_ENTRY(data->PO_date));
 				DB( g_print(" -> date: '%d'\n", txn->date) );
+
+				//#1270687/1792808: sort if date changed
+				if(olddate != txn->date)
+					tmp_sort = TRUE;
+				
 				change = TRUE;
 			}
 		}
@@ -334,6 +342,9 @@ guint changes;
 	g_list_foreach(selection, (GFunc)gtk_tree_path_free, NULL);
 	g_list_free(selection);
 
+	if( do_sort != NULL )
+		*do_sort = tmp_sort;
+	
 	return GLOBALS->changes_count - changes;
 }
 

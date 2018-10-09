@@ -405,7 +405,7 @@ guint32 nblate = 0;
 		curdate = _sched_date_get_next_post(post_date, arc, curdate);
 		nblate++;
 		// break if over limit or at 11 max (to display +10)
-		if(nblate >= arc->limit || nblate >= 11)
+		if( nblate >= 11 || ( (arc->flags & OF_LIMIT) && (nblate >= arc->limit) ) )
 			break;
 	}
 
